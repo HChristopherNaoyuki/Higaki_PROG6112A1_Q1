@@ -1,4 +1,3 @@
-
 package QUESTION1;
 
 // StudentTest.java
@@ -14,8 +13,8 @@ package QUESTION1;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class StudentTest {
-
+public class StudentTest 
+{
     /**
      * Tests the SaveStudent method to ensure that a student can be successfully
      * added to the list and retrieved.
@@ -26,7 +25,8 @@ public class StudentTest {
      * student matches the expected name.
      */
     @Test
-    public void TestSaveStudent() {
+    public void TestSaveStudent() 
+    {
         Student student = new Student("10111", "J.Bloggs", 19, "jbloggs@ymail.com", "disd");
         Student.SaveStudent(student); // Save the student to the list
         Student result = Student.SearchStudent("10111"); // Retrieve the student by ID
@@ -43,7 +43,8 @@ public class StudentTest {
      * the name of the student matches the expected name.
      */
     @Test
-    public void TestSearchStudent() {
+    public void TestSearchStudent() 
+    {
         Student student = new Student("10112", "J.Doe", 21, "jdoe@ymail.com", "disd");
         Student.SaveStudent(student); // Save the student to the list
         Student result = Student.SearchStudent("10112"); // Search for the student by ID
@@ -59,7 +60,8 @@ public class StudentTest {
      * It asserts that the result is null, indicating that the student was not found.
      */
     @Test
-    public void TestSearchStudent_StudentNotFound() {
+    public void TestSearchStudent_StudentNotFound() 
+    {
         Student result = Student.SearchStudent("99999"); // Search for a non-existent student
         assertNull(result); // Check that the result is null
     }
@@ -73,7 +75,8 @@ public class StudentTest {
      * can no longer be found in the list.
      */
     @Test
-    public void TestDeleteStudent() {
+    public void TestDeleteStudent() 
+    {
         Student student = new Student("10113", "P.Parker", 20, "spidey@ymail.com", "disn");
         Student.SaveStudent(student); // Save the student to the list
         boolean deleted = Student.DeleteStudent("10113"); // Delete the student by ID
@@ -89,7 +92,8 @@ public class StudentTest {
      * It asserts that the deletion was not successful.
      */
     @Test
-    public void TestDeleteStudent_StudentNotFound() {
+    public void TestDeleteStudent_StudentNotFound() 
+    {
         boolean deleted = Student.DeleteStudent("55555"); // Attempt to delete a non-existent student
         assertFalse(deleted); // Check that the deletion was not successful
     }
@@ -100,7 +104,8 @@ public class StudentTest {
      * This test verifies that an age of "18" is considered valid by the isValidAge method.
      */
     @Test
-    public void TestStudentAge_StudentAgeValid() {
+    public void TestStudentAge_StudentAgeValid() 
+    {
         assertTrue(isValidAge("18")); // Check that the age "18" is valid
     }
 
@@ -110,7 +115,8 @@ public class StudentTest {
      * This test verifies that an age of "10" is considered invalid by the isValidAge method.
      */
     @Test
-    public void TestStudentAge_StudentAgeInvalid() {
+    public void TestStudentAge_StudentAgeInvalid() 
+    {
         assertFalse(isValidAge("10")); // Check that the age "10" is invalid
     }
 
@@ -121,11 +127,15 @@ public class StudentTest {
      * being thrown when parsed as an integer.
      */
     @Test
-    public void TestStudentAge_StudentAgeInvalidCharacter() {
-        try {
+    public void TestStudentAge_StudentAgeInvalidCharacter() 
+    {
+        try 
+        {
             Integer.parseInt("c"); // Attempt to parse an invalid age input
             fail("Expected NumberFormatException not thrown"); // Fail the test if exception is not thrown
-        } catch (NumberFormatException e) {
+        } 
+        catch (NumberFormatException e) 
+        {
             // Expected exception, test passes
         }
     }
@@ -136,13 +146,16 @@ public class StudentTest {
      * @param ageInput The age input as a string.
      * @return True if the age is valid, false otherwise.
      */
-    private boolean isValidAge(String ageInput) {
-        try {
+    private boolean isValidAge(String ageInput) 
+    {
+        try 
+        {
             int age = Integer.parseInt(ageInput); // Parse the age input
             return age >= 16; // Return true if the age is 16 or older
-        } catch (NumberFormatException e) {
+        } 
+        catch (NumberFormatException e) 
+        {
             return false; // Return false if the input is not a valid integer
         }
     }
 }
-

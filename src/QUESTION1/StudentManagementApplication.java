@@ -1,10 +1,9 @@
-
 package QUESTION1;
 
 // StudentManagementApplication.java
 // AUTHOR: Naoyuki Christopher Higaki
 // STUDENT NUMBER: ST10462415
-// 
+//
 // This file defines the StudentManagementApplication class, which provides a simple
 // console-based application for managing student records. The application allows users
 // to capture new student details, search for students by their ID, delete student records,
@@ -21,10 +20,12 @@ package QUESTION1;
 
 import java.util.Scanner;
 
-public class StudentManagementApplication {
+public class StudentManagementApplication 
+{
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         // Initial greeting and menu prompt
         System.out.println("STUDENT MANAGEMENT APPLICATION");
         System.out.println("*************************************************");
@@ -33,19 +34,22 @@ public class StudentManagementApplication {
 
         // Capture initial user choice to either launch the menu or exit
         String initialChoice = scanner.nextLine();
-        if (!"1".equals(initialChoice)) {
+        if (!"1".equals(initialChoice)) 
+        {
             // If user does not enter '1', exit the application
             System.out.println("Exiting the application. Goodbye!");
             System.exit(0);
         }
 
         // Main application loop to continually display menu and handle user choices
-        while (true) {
+        while (true) 
+        {
             showMenu(); // Display the main menu
             String choice = scanner.nextLine(); // Read user input
 
             // Handle user choice using a switch statement
-            switch (choice) {
+            switch (choice) 
+            {
                 case "1":
                     captureStudent(); // Handle new student entry
                     break;
@@ -69,7 +73,8 @@ public class StudentManagementApplication {
     }
 
     // Displays the main menu to the user with available options
-    private static void showMenu() {
+    private static void showMenu() 
+    {
         System.out.println("    ");
         System.out.println("Please select one of the following menu items:");
         System.out.println("(1) Capture a new student.");
@@ -81,7 +86,8 @@ public class StudentManagementApplication {
     }
 
     // Prompts the user to enter details for a new student and saves the student record
-    private static void captureStudent() {
+    private static void captureStudent() 
+    {
         System.out.println("CAPTURE A NEW STUDENT");
         System.out.println("*****************************");
 
@@ -108,23 +114,31 @@ public class StudentManagementApplication {
     }
 
     // Captures and validates the student's age to ensure it is a number and within the acceptable range
-    private static int captureStudentAge() {
+    private static int captureStudentAge() 
+    {
         int age = 0;
         boolean validAge = false;
-        while (!validAge) {
+        while (!validAge) 
+        {
             System.out.print("Enter the student age: ");
             String ageInput = scanner.nextLine();
-            try {
+            try 
+            {
                 // Attempt to parse age input as an integer
                 age = Integer.parseInt(ageInput);
                 // Check if age is within the valid range
-                if (age < 16) {
+                if (age < 16) 
+                {
                     System.out.println("You have entered an incorrect student age!!!");
                     System.out.println("Please re-enter the student age >>");
-                } else {
+                }
+                else 
+                {
                     validAge = true; // Age is valid if it is 16 or older
                 }
-            } catch (NumberFormatException e) {
+            } 
+            catch (NumberFormatException e) 
+            {
                 // Handle non-integer age input
                 System.out.println("You have entered an incorrect student age!!!");
                 System.out.println("Please re-enter the student age >>");
@@ -134,13 +148,15 @@ public class StudentManagementApplication {
     }
 
     // Searches for a student by their ID and displays their details if found
-    private static void searchStudent() {
+    private static void searchStudent() 
+    {
         System.out.print("Enter the student id to search: ");
         String studentId = scanner.nextLine();
 
         // Search for the student in the list
         Student student = Student.SearchStudent(studentId);
-        if (student != null) {
+        if (student != null) 
+        {
             // Display student details if found
             System.out.println("---------------------------------------------");
             System.out.println("STUDENT ID: " + student.getStudentId());
@@ -149,7 +165,9 @@ public class StudentManagementApplication {
             System.out.println("STUDENT EMAIL: " + student.getEmail());
             System.out.println("STUDENT COURSE: " + student.getCourse());
             System.out.println("---------------------------------------------");
-        } else {
+        } 
+        else 
+        {
             // Notify user if student was not found
             System.out.println("---------------------------------------------");
             System.out.println("Student with Student Id: " + studentId + " was not found!");
@@ -158,7 +176,8 @@ public class StudentManagementApplication {
     }
 
     // Prompts the user to confirm and then deletes a student record based on the provided ID
-    private static void deleteStudent() {
+    private static void deleteStudent() 
+    {
         System.out.print("Enter the student id to delete: ");
         String studentId = scanner.nextLine();
 
@@ -166,14 +185,18 @@ public class StudentManagementApplication {
         System.out.println("Are you sure you want to delete student " + studentId + " from the system? Yes (y) to delete.");
         String confirmation = scanner.nextLine();
 
-        if ("y".equalsIgnoreCase(confirmation)) {
+        if ("y".equalsIgnoreCase(confirmation)) 
+        {
             // Attempt to delete the student
             boolean success = Student.DeleteStudent(studentId);
-            if (success) {
+            if (success) 
+            {
                 System.out.println("---------------------------------------------");
                 System.out.println("Student with Student Id: " + studentId + " WAS deleted!");
                 System.out.println("---------------------------------------------");
-            } else {
+            } 
+            else 
+            {
                 System.out.println("---------------------------------------------");
                 System.out.println("Student with Student Id: " + studentId + " was not found!");
                 System.out.println("---------------------------------------------");
