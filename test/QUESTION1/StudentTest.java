@@ -1,8 +1,6 @@
 package QUESTION1;
 
 // StudentTest.java
-// AUTHOR: Naoyuki Christopher Higaki
-// STUDENT NUMBER: ST10462415
 //
 // This file contains unit tests for the Student class methods.
 // The StudentTest class uses the JUnit 4 framework to verify the correctness of methods
