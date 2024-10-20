@@ -1,8 +1,6 @@
 package QUESTION1;
 
 // Student.java
-// AUTHOR: Naoyuki Christopher Higaki
-// STUDENT NUMBER: ST10462415
 //
 // This file defines the Student class which represents a student record in a student
 // management application. The Student class includes attributes for student ID, name,
