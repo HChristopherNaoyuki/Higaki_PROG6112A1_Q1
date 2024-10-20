@@ -1,8 +1,6 @@
 package QUESTION1;
 
 // StudentManagementApplication.java
-// AUTHOR: Naoyuki Christopher Higaki
-// STUDENT NUMBER: ST10462415
 //
 // This file defines the StudentManagementApplication class, which provides a simple
 // console-based application for managing student records. The application allows users
